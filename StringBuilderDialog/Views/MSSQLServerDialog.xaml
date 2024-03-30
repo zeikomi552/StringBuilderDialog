@@ -8,7 +8,7 @@
         xmlns:hlp="clr-namespace:StringBuilderDialog.Common.Helpers"
         xmlns:ViewModels="clr-namespace:StringBuilderDialog.ViewModels" xmlns:b="http://schemas.microsoft.com/xaml/behaviors" xmlns:Converters="clr-namespace:StringBuilderDialog.Common.Converters" x:Class="StringBuilderDialog.Views.MSSQLServerDialog"
         mc:Ignorable="d"
-        Title="MSSQLServerDialog" Height="auto" Width="500"
+        Title="MSSQLServerDialog" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         hlp:DialogResultHelper.DialogResult="{Binding DialogResult, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
     <Window.Resources>
         <Converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
@@ -21,14 +21,13 @@
             <b:CallMethodAction TargetObject="{Binding}" MethodName="Init"/>
         </b:EventTrigger>
     </b:Interaction.Triggers>
-    <Grid>
+    <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="Microsoft SQL Server">
-
-            <TabControl>
+        <GroupBox Header="Microsoft SQL Server" Margin="5">
+            <TabControl Margin="5">
                 <TabItem Header="ログイン">
                     <StackPanel VerticalAlignment="Center">
                         <StackPanel Margin="5" Orientation="Horizontal">
@@ -67,7 +66,7 @@
             </TabControl>
         </GroupBox>
 
-        <StackPanel HorizontalAlignment="Right" Grid.Row="1" Orientation="Horizontal">
+        <StackPanel Margin="5" HorizontalAlignment="Right" Grid.Row="1" Orientation="Horizontal">
             <Button Margin="5" Width="100" Content="接続">
                 <b:Interaction.Triggers>
                     <b:EventTrigger EventName="Click">
