@@ -12,33 +12,8 @@ using System.Windows;
 
 namespace StringBuilderDialog.ViewModels
 {
-    public class MSSQLServerDialogVM : INotifyPropertyChanged
+    internal class MSSQLServerDialogVM : ViewModelBase
     {
-        #region DialogResult[DialogResult]プロパティ
-        /// <summary>
-        /// DialogResult[DialogResult]プロパティ用変数
-        /// </summary>
-        bool? _DialogResult = null;
-        /// <summary>
-        /// DialogResult[DialogResult]プロパティ
-        /// </summary>
-        public bool? DialogResult
-        {
-            get
-            {
-                return _DialogResult;
-            }
-            set
-            {
-                if (_DialogResult == null || !_DialogResult.Equals(value))
-                {
-                    _DialogResult = value;
-                    NotifyPropertyChanged("DialogResult");
-                }
-            }
-        }
-        #endregion
-
         #region 接続文字列生成[ConnectionStringBuilder]プロパティ
         /// <summary>
         /// 接続文字列生成[ConnectionStringBuilder]プロパティ用変数
@@ -292,16 +267,6 @@ namespace StringBuilderDialog.ViewModels
         }
         #endregion
 
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler? PropertyChanged;
 
-        private void NotifyPropertyChanged(String info)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(info));
-            }
-        }
-        #endregion
     }
 }

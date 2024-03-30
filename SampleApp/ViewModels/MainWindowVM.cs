@@ -31,7 +31,25 @@ namespace SampleApp.ViewModels
             }
         }
 
+        public void OpenSQLiteStringConnection()
+        {
+            try
+            {
+                SQLiteConnectionBuilderDialog wnd = new SQLiteConnectionBuilderDialog();
+                string connectionString = "Data Source = c:\\test.db";
 
+                wnd.SetConnectionString(connectionString);
+
+                if (wnd.ShowDialog() == true)
+                {
+                    MessageBox.Show(wnd.GetConnectionString());
+                }
+
+            }
+            catch
+            {
+            }
+        }
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
 
